@@ -20,5 +20,13 @@ class UtilsTest extends TestCase
         // И только потом актуальное (actual)
         $this->assertEquals('', reverseString(''));
         $this->assertEquals('olleh', reverseString('hello'));
+
+        $before = file_get_contents(__DIR__ . "/../tests/fixtures/before.txt");
+        $after = file_get_contents(__DIR__ . "/../tests/fixtures/after.txt");
+        $this->assertEquals($after, reverseString($before));
+
+        $string1 = 'mnbvcxzlkjhgfdsapoiuytrewq';
+        $string2 = 'qwertyuiopasdfghjklzxcvbnm';
+        $this->assertEquals($string1, reverseString($string2));
     }
 }
